@@ -1,0 +1,55 @@
+<!doctype html>
+<title> Stock Server</title>
+
+
+{% if current_user.is_authenticated %}
+<h> Hi {{ current_user.name }}! You are already logged in</h>
+<form id="gotomain" action="/main" method="get"> <input type="submit" value="Go To Main"></form>
+{% else %}
+<H>It Would Seem You Are Not Logged In</H>
+<form id="startform" action="/login" method="get"> <input type="submit" value="Login"></form>
+{% endif %}
+
+
+
+<!--<form id="startform" action="/run" method="post"> <input type="submit" value="Start"></form>
+
+<form id="stopform" action="/stop" method="post"> <input type="submit" value="Stop"></form>-->
+
+
+
+
+
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
