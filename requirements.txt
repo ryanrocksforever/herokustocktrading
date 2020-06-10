@@ -102,9 +102,7 @@ python-engineio==3.11.2
 python-socketio==3.1.2
 python-telegram-bot==11.1.0
 pytrends==4.7.2
-pytz==2018.9
-pywin32==227
-pywin32-ctypes==0.2.0
+
 PyYAML==5.3
 questionary==1.5.1
 rasa-core==0.14.5
