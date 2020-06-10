@@ -136,7 +136,7 @@ def run():
         alreadyrunning = True
         greenlet = gevent.spawn(Main_Run.mainstuff)
         print("starting")
-        return '<head>  <meta http-equiv="refresh" content="1; URL=https://127.0.0.1:80/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
+        return '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
 
 
 @app.route('/stop', methods=['POST'])
@@ -153,7 +153,7 @@ def stop():
         # mainthread.kill()
         greenlet.kill()
         print("stopped")
-        return '<head>  <meta http-equiv="refresh" content="1; URL=https://127.0.0.1:80/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
+        return '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
 
 isrunning = requests.get("https://api.booleans.io/" + booleanid)
 jsoncontent = isrunning.json()
@@ -168,4 +168,4 @@ else:
     alreadyrunning = False
     
 
-app.run(ssl_context='adhoc', host='127.0.0.1', port=80)
+app.run()
