@@ -166,6 +166,6 @@ if "True" in value:
 
 else:
     alreadyrunning = False
-    
 
-app.run()
+if __name__ == '__main__':
+    app.run()
