@@ -1,0 +1,6 @@
+{
+  "name": "herokustocktrading",
+  "description": "Ai Stock Trading.",
+  "repository": "https://github.com/ryanrocksforever/herokustocktrading",
+  "keywords": ["flask", "heroku"]
+}
