@@ -105,7 +105,7 @@ def login():
 @app.route('/protected')
 @flask_login.login_required
 def protected():
-    return 'Logged in as: ' + flask_login.current_user.id + '<head>  <meta http-equiv="refresh" content="1; URL=https://127.0.0.1:5000/" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
+    return 'Logged in as: ' + flask_login.current_user.id + '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
 
 
 @app.route('/logout')
