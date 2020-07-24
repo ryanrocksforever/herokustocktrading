@@ -16,23 +16,12 @@ def price(stock):
     barset = api.get_barset(symbols=stock, timeframe='1Min', limit=1, start=dt_string)
     aapl_bars = barset[stock]
     print(barset)
-    if aapl_bars[0].v > 400:
-        while aapl_bars[0].v > 17700:
-            barset = api.get_barset(symbols=stock, timeframe='1Min', limit=1, start=dt_string)
-            aapl_bars = barset[stock]
-            print(aapl_bars)
-            time.sleep(1)
-        else:
-            current = aapl_bars[0].c
 
-            return current
-
-    else:
         # See how much AAPL moved in that timeframe.
         #print(aapl_bars)
-        current = aapl_bars[0].c
+    current = aapl_bars[0].c
 
-        return current
+    return current
 
 
 def get(stock):

@@ -165,7 +165,9 @@ body {
   width: calc(20vw / 4);
 }
 .order-fragment {
-  margin: 5px;
+  margin: 0px;
+  padding-bottom: 100px;
+  padding-top: 100px;
   width: calc(20vw / 4);
 }
 .event-fragment {
