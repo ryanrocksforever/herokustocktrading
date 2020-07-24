@@ -108,9 +108,9 @@ body {
   justify-content: center;
 }
 #orders-log {
-  height: calc(22vh - 80px);
+  height: 22vh;
   width: 20vw;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
   scrollbar-width: none;
   padding: 5%;
 }

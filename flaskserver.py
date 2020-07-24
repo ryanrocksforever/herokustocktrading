@@ -3,15 +3,18 @@ import flask
 import flask_login
 import threading
 import Main_Run
+import Main_backend as back
 import gevent
 from gevent import monkey
+
 monkey.patch_all()
 import requests
+import barset as barget
 from flask import Blueprint
 
 # from . import db
 
-#monkey.patch_all()
+# monkey.patch_all()
 
 # app = Blueprint('main', __name__)
 
@@ -78,7 +81,15 @@ def hello(name=None):
 @flask_login.login_required
 def main(name=None):
     global alreadyrunning
-    return render_template('hello.html', name=name, running=alreadyrunning)
+    # profit = 233
+    endprice = back.Actions().project(option="AAPL")
+    price = barget.get("AAPL")
+    profit = back.Actions().profit()
+    print(profit)
+    orders = back.Actions().getorders()
+    line = orders["symbol"] + ",_______" + orders["filled_qty"] + ",________" + orders["side"]
+    return render_template('hello.html', name=name, endprice=endprice, running=alreadyrunning, price=price,
+                           profit=profit, orders=line)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -130,7 +141,8 @@ def run():
             return {"alive": "false"}
 
     if request.method == 'POST':
-        patch = requests.patch("https://api.booleans.io/" + booleanid, data={'label': 'True'}, headers={"Authorization": "Token " + booleantoken})
+        patch = requests.patch("https://api.booleans.io/" + booleanid, data={'label': 'True'},
+                               headers={"Authorization": "Token " + booleantoken})
         print(patch.text)
 
         alreadyrunning = True
@@ -143,7 +155,8 @@ def run():
 def stop():
     global alreadyrunning
     if request.method == 'POST':
-        patch = requests.patch("https://api.booleans.io/" + booleanid, data={'label': 'False'}, headers={"Authorization": "Token " + booleantoken})
+        patch = requests.patch("https://api.booleans.io/" + booleanid, data={'label': 'False'},
+                               headers={"Authorization": "Token " + booleantoken})
         print(patch.text)
 
         alreadyrunning = False
@@ -151,9 +164,13 @@ def stop():
         print("stopping")
         # stop_event.set()
         # mainthread.kill()
-        greenlet.kill()
+        try:
+            greenlet.kill()
+        except:
+            print("cant kill")
         print("stopped")
         return '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
+
 
 isrunning = requests.get("https://api.booleans.io/" + booleanid)
 jsoncontent = isrunning.json()

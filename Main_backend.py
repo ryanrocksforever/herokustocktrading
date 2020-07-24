@@ -5,12 +5,14 @@ import datetime
 import requests
 import re
 import barthing
+import json
+import ast
 
 poop = stocker.predict.tomorrow('SBUX')
 print(poop)
 
-API_KEY = "PKTY3LK42N32O6JE5ATM"
-API_SECRET = "C4Sgg17St45daVoKoPySG4B72xJsX/fvYMITgK5d"
+API_KEY = "PKRFE6TC81RILOIZETPN"
+API_SECRET = "DFP5raNeqjoBDBbj4DMsmBQqEVAXrwgLVvSGclJa"
 APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
 
 
@@ -205,8 +207,23 @@ class Actions:
         else:
             return True
     def getorders(self):
-        acount = self.alpaca.get_account()
-        number = acount
+
+        orders = self.alpaca.list_orders(
+            status='closed',
+            limit=100,
+            nested=True  # show nested multi-leg orders
+        )
+        niceorders = str(orders[0])
+        betterorders = niceorders.replace("Order(", "").replace(")", "").replace("   ", "").replace("'", '"').replace('":', '" :')
+        bestorders = ast.literal_eval(betterorders)
+        print(niceorders)
+        print(betterorders)
+        symbol = bestorders["symbol"]
+        for key in bestorders.keys():
+            print(key)
+
+        print("FINAL ORDERS: " + repr(symbol))
+        return bestorders
     def project(self, option):
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         return future[0]
@@ -220,6 +237,37 @@ class Actions:
         account = self.alpaca.get_account()
         balance_change = float(account.equity) - float(account.last_equity)
         print(f'Today\'s portfolio balance change: ${balance_change}')
+        return round(balance_change, 2)
+
+    def rideup(self, stock, startprice, qty):
+        riseup = True
+        previousprice = barthing.get
+        while riseup is True:
+            currentprice = barthing.get(stock)
+            if previousprice >= currentprice <= previousprice - 0.5:
+                self.submitOrder(qty, stock, "sell")
+                riseup = False
+
+            time.sleep(30)
+
+    def ridedown(self, stock, startprice, qty):
+        riseup = True
+        previousprice = barthing.get
+        while riseup is True:
+            currentprice = barthing.get(stock)
+            if previousprice <= currentprice >= previousprice + 0.5:
+                self.submitOrder(qty, stock, "buy")
+                riseup = False
+
+            time.sleep(30)
+
+
+
+
+
+
+
+
 # Actions.saystock()
 
 if __name__ == "__main__":

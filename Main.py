@@ -59,12 +59,23 @@ class mainstuff:
                 while real > goal and back.Actions().closingTime() is not True:
                     v = barget.get(stock=symbol)
                     real = float(v)
-                    print(back.Actions().closingTime())
+                    closetime = back.Actions().closingTime()
+                    if closetime is True or real < goal:
+                        break
                     print(real)
                     time.sleep(1)
                     print("sleepong 1 sec")
+
+                if real < goal:
+                    v = barget.get(stock=symbol)
+                    real = float(v)
+                    print("buying")
+                    print(real)
+                    print("<")
+                    print(goal)
+                    back.Actions().ridedown(symbol, v, amount)
                 else:
-                    if real < goal or back.Actions().closingTime() is True:
+                    if back.Actions().closingTime() is True:
                         v = barget.get(stock=symbol)
                         real = float(v)
                         print("buying")
@@ -72,6 +83,7 @@ class mainstuff:
                         print("<")
                         print(goal)
                         back.Actions().flatten(stock=symbol, qty=amount, side="buy")
+
             else:
                 print("not enough power")
         else:
@@ -89,16 +101,26 @@ class mainstuff:
             if power > real:
                 back.Actions().submitOrder(qty=amount, stock=stock, side='buy')
                 print("bought" + stock)
+                closetime = back.Actions().closingTime()
                 while real < goal or closetime is True:
                     v = barget.get(stock=symbol)
                     real = float(v)
                     closetime = back.Actions().closingTime()
+                    if closetime is True or real < goal:
+                        break
                     print(back.Actions().closingTime())
                     print(real)
                     print("waiting")
                     time.sleep(1)
+
+                if real > goal:
+                    print("selling")
+                    print(real)
+                    print("<")
+                    print(goal)
+                    back.Actions().rideup()
                 else:
-                    if real > goal or back.Actions().closingTime() is True:
+                    if back.Actions().closingTime() is True:
                         print("selling")
                         print(real)
                         print("<")
