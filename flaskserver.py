@@ -175,17 +175,17 @@ def stop():
         return '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
 
 
-isrunning = requests.get("https://api.booleans.io/" + booleanid)
-jsoncontent = isrunning.json()
-value = jsoncontent["label"]
-print(value)
-if "True" in value:
-    greenlet = gevent.spawn(Main_Run.mainstuff)
-    print("starting")
-    alreadyrunning = True
-
-else:
-    alreadyrunning = False
+# isrunning = requests.get("https://api.booleans.io/" + booleanid)
+# jsoncontent = isrunning.json()
+# value = jsoncontent["label"]
+# print(value)
+# if "True" in value:
+#     greenlet = gevent.spawn(Main_Run.mainstuff)
+#     print("starting")
+#     alreadyrunning = True
+#
+# else:
+#     alreadyrunning = False
 
 if __name__ == '__main__':
     app.run()
