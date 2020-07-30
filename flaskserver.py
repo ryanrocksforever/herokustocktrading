@@ -184,8 +184,9 @@ def stop():
 #     print("starting")
 #     alreadyrunning = True
 #
-# else:
-#     alreadyrunning = False
+# else
+#
+alreadyrunning = False
 
 if __name__ == '__main__':
     app.run()
