@@ -1,11 +1,14 @@
+import gevent
+from gevent import monkey
+monkey.patch_all()
+
 from flask import render_template, Flask, request
 import flask
 import flask_login
 import threading
 import Main_Run
 import Main_backend as back
-import gevent
-from gevent import monkey
+
 
 monkey.patch_all()
 import requests
