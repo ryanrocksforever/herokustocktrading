@@ -83,7 +83,7 @@ def main(name=None):
     global alreadyrunning
     # profit = 233
     print("endprice")
-    endprice = back.Actions().project(option="AAPL")
+    #endprice = back.Actions().project(option="AAPL")
     print("price:")
     price = barget.get("AAPL")
     print("profit:")
@@ -91,7 +91,7 @@ def main(name=None):
     #print(profit)
     orders = back.Actions().getorders()
     line = orders["symbol"] + ",_______" + orders["filled_qty"] + ",________" + orders["side"]
-    return render_template('hello.html', name=name, endprice=endprice, running=alreadyrunning, price=price,
+    return render_template('hello.html', name=name, endprice="none", running=alreadyrunning, price=price,
                            profit=profit, orders=line)
 
 
