@@ -45,20 +45,19 @@ body {
   height: 50vh;
   width: 20vw;
 }
-#chart-container {
-  height: 50vh;
-  width: 50vw;
-  padding: 5%;
-}
+
 .control-button {
   width: 150px;
   margin: auto;
 }
 #event-log {
-  height: 50vh;
-  width: 20vw;
-  border: 1px solid black;
+  height: 25vh;
+  width: 70%;
+  padding: -20px;
+  margin: -10px;
+  border: 1px solid red;
   border-radius: 10px;
+
   overflow-y: scroll;
 }
 #positions {
@@ -171,5 +170,6 @@ body {
   width: calc(20vw / 4);
 }
 .event-fragment {
-  margin: 5px;
+  margin: 0px;
+
 }

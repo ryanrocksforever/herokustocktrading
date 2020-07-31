@@ -1,45 +1,26 @@
-from PyQt5.QtWidgets import *
-import Main as mainstuffdo
-import os
-#import MainBuffer
 import sys
-import MainBuffer as buff
-import os
-app = QApplication([])
-button = QPushButton('Click')
-def start():
-    #mainstuffdo.mainstuff().abcabc()
-    buff.runthing(run=True)
+import time
+
+print('This message will be displayed on the screen.')
 
 
-def on_button_clicked():
-
-    start()
 
 
-def on_button_clicked2():
-    buff.runthing(run=False)
+def logconsole():
+    with open('filename.txt', 'w') as f:
+        sys.stdout = f # Change the standard output to the file we created.
+        print("asdf")
 
 
-topRightGroupBox = QGroupBox("Group 2")
-
-defaultPushButton = QPushButton("Start")
-defaultPushButton2 = QPushButton("Stop")
-
-layout = QVBoxLayout()
-layout.addWidget(defaultPushButton)
-layout.addWidget(defaultPushButton2)
-
-layout.addStretch(1)
-topRightGroupBox.setLayout(layout)
 
 
-defaultPushButton.clicked.connect(on_button_clicked)
-defaultPushButton2.clicked.connect(on_button_clicked2)
 
+while True:
 
-#button.show()
-topRightGroupBox.show()
+    f = open('filename.txt', 'a')
 
+    sys.stdout = f
+    print("bruh")
+    print("hello")
+    time.sleep(1)
 
-app.exec_()

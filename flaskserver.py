@@ -1,3 +1,5 @@
+import sys
+
 import gevent
 from gevent import monkey
 monkey.patch_all()
@@ -20,6 +22,12 @@ from flask import Blueprint
 # monkey.patch_all()
 
 # app = Blueprint('main', __name__)
+original_stdout = sys.stdout # Save a reference to the original standard outpu
+
+f = open('filename.txt', 'a')
+sys.stderr = f
+sys.stdin = f
+sys.stdout = f
 
 app = Flask(__name__)
 
@@ -80,6 +88,22 @@ def hello(name=None):
     return render_template('index.html', name=name)
 
 
+def LastNlines(fname, N):
+    # opening file using with() method
+    # so that file get closed
+    # after completing work
+    finallines = ""
+    with open(fname) as file:
+
+        # loop to read iterate
+        # last n lines and print it
+        for line in (file.readlines() [-N:]):
+            finallines += line
+            print(line, end ='')
+        return finallines
+
+
+
 @app.route('/main')
 @flask_login.login_required
 def main(name=None):
@@ -94,20 +118,16 @@ def main(name=None):
     #print(profit)
     orders = back.Actions().getorders()
     line = orders["symbol"] + ",_______" + orders["filled_qty"] + ",________" + orders["side"]
-    return render_template('hello.html', name=name, endprice="none", running=alreadyrunning, price=price,
-                           profit=profit, orders=line)
+    fname = 'filename.txt'
+    N = 50
+    cout = LastNlines(fname, N)
+    return render_template('hello.html', name=name, endprice="none", running=alreadyrunning, price=price, profit=profit, orders=line, consoleoutput=cout)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if flask.request.method == 'GET':
-        return '''
-               <form action='login' method='POST'>
-                <input type='text' name='email' id='email' placeholder='email'/>
-                <input type='password' name='password' id='password' placeholder='password'/>
-                <input type='submit' name='submit'/>
-               </form>
-               '''
+        return render_template('login.html')
 
     email = flask.request.form['email']
     if flask.request.form['password'] == users[email]['password']:
