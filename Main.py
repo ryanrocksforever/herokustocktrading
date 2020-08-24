@@ -21,7 +21,7 @@ class mainstuff:
     def run(self):
         stock = self.best
         # qty = back.Actions().getqty(stock)
-        qty = 50
+        qty = back.Actions().getqty(stock)
         print(qty)
         back.Actions().awaitMarketClose(qty=qty, stock=self.best, side="sell", start=True)
         back.Actions().awaitMarketOpen()

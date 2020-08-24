@@ -11,8 +11,8 @@ import ast
 poop = stocker.predict.tomorrow('SBUX')
 print(poop)
 
-API_KEY = "PKRFE6TC81RILOIZETPN"
-API_SECRET = "DFP5raNeqjoBDBbj4DMsmBQqEVAXrwgLVvSGclJa"
+API_KEY = "PKZJHBUT5KSD9XJ9M8EO"
+API_SECRET = "XcbWSsuYxq7PxtBNRIp51U9G25aGn/d5sBvjpalG"
 APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
 
 

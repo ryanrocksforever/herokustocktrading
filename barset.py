@@ -4,8 +4,8 @@ import time
 from datetime import datetime
 
 def price(stock):
-    API_KEY = "PKRFE6TC81RILOIZETPN"
-    API_SECRET = "DFP5raNeqjoBDBbj4DMsmBQqEVAXrwgLVvSGclJa"
+    API_KEY = "PKZJHBUT5KSD9XJ9M8EO"
+    API_SECRET = "XcbWSsuYxq7PxtBNRIp51U9G25aGn/d5sBvjpalG"
     APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
 
     api = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
