@@ -11,8 +11,8 @@ import ast
 poop = stocker.predict.tomorrow('SBUX')
 print(poop)
 
-API_KEY = "PKZJHBUT5KSD9XJ9M8EO"
-API_SECRET = "XcbWSsuYxq7PxtBNRIp51U9G25aGn/d5sBvjpalG"
+API_KEY = "PKW2FI9P4854V34RX698"
+API_SECRET = "BIyasVLegtVpSq5ug2zilpIuGAeMFUaeqZZPd06R"
 APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
 
 
@@ -43,10 +43,11 @@ class Actions:
     # def saystock(self):
     #   stonks = self.stockuniverse
     #  print(stonks)
-    def beststock(self):
-        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-movers"
+    def beststock(self, uponly):
+        global beststock
+        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers"
 
-        querystring = {"region": "US", "lang": "en"}
+        querystring = {"region": "US"}
 
         headers = {
             'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com",
@@ -55,67 +56,30 @@ class Actions:
 
         response = requests.request("GET", url, headers=headers, params=querystring)
 
-        print(response.text)
+        # print(response.text)
 
-        m = re.findall('symbol":"(.+?)"}', response.text)
+        jsonfromit = json.loads(response.text)
+        # print(jsonfromit['finance']['result'][0]['quotes'])
+        quotes = jsonfromit['finance']['result'][0]['quotes']
+        maxchange = 0
+        for x in quotes:
+            # print(x)
+            if uponly is False:
+                if abs(x["regularMarketChange"]) > maxchange and self.isTradable(x["symbol"]) is True:
+                    maxchange = abs(x["regularMarketChange"])
+                    # maxchange = x["regularMarketChange"]
+                    beststock = x
+            else:
+                # print(uponly)
+                if abs(x["regularMarketChange"]) > maxchange and x["regularMarketChange"] > 0 and self.isTradable(
+                        x["symbol"]) is True:
+                    maxchange = abs(x["regularMarketChange"])
+                    # maxchange = x["regularMarketChange"]
+                    beststock = x
 
-        if m:
-            found = m[0]
-            print(found)
-        if m:
-            found1 = m[1]
-            print(found1)
-        if m:
-            found2 = m[2]
-            print(found2)
-        if m:
-            found3 = m[3]
-            print(found3)
-        if m:
-            found4 = m[4]
-            print(found4)
-        if m:
-            found5 = m[5]
-            print(found5)
-        if m:
-            found6 = m[6]
-            print(found6)
-        if m:
-            found7 = m[7]
-            print(found7)
-        if m:
-            found8 = m[8]
-            print(found8)
-        if m:
-            found9 = m[9]
-            print(found9)
-        if m:
-            found10 = m[10]
-            print(found10)
-        if m:
-            found11 = m[11]
-            print(found2)
-        if m:
-            found12 = m[12]
-            print(found3)
-        if m:
-            found13 = m[13]
-            print(found4)
-        if m:
-            found14 = m[14]
-            print(found5)
-        if m:
-            found15 = m[1]
-            print(found6)
-        if m:
-            found16 = m[16]
-            print(found7)
-        if m:
-            found17 = m[17]
-            print(found8)
-        best = found
-        return best
-
+        print(beststock["regularMarketChange"])
+        print(beststock["symbol"])
+        return beststock["symbol"]
 
     def flatten(self, stock, qty, side):
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
@@ -131,6 +95,7 @@ class Actions:
             print(str(timeToOpen) + " minutes til market open.")
             time.sleep(60)
             isOpen = self.alpaca.get_clock().is_open
+
     def closingTime(self):
         clock = self.alpaca.get_clock()
         closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
@@ -141,31 +106,45 @@ class Actions:
             # Close all positions when 15 minutes til market close.
             print("Market closing soon.")
 
-
             return True
         else:
             return False
 
     def submitOrder(self, qty, stock, side):
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+
     def awaitMarketClose(self, qty, stock, side, start):
         clock = self.alpaca.get_clock()
         closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
         currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
         self.timeToClose = closingTime - currTime
 
-        if (self.timeToClose < (60 * 15)):
+        if self.timeToClose < (60 * 15):
             # Close all positions when 15 minutes til market close.
             print("Market closing soon.  Closing positions.")
-            side = 'sell'
+            # side = 'sell'
             if start is not True:
+                #self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+                isOpen = self.alpaca.get_clock().is_open
+                print(isOpen)
+                while isOpen:
+                    clock = self.alpaca.get_clock()
+                    closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
+                    currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
+                    timeToOpen = int((closingTime - currTime) / 60)
+                    print(str(timeToOpen) + " minutes til market close.")
+                    time.sleep(60)
+                    isOpen = self.alpaca.get_clock().is_open
 
-                self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
-
-
-
-    def submitOrder(self, qty, stock, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+    def isTradable(self, symbol):
+        try:
+            trad = self.alpaca.get_asset(symbol)
+            if trad.tradable:
+                return True
+            else:
+                return False
+        except:
+            return False
 
     # def price(self, symbol):
     #     # price = self.alpaca.get_asset(symbol=stock)
@@ -179,7 +158,11 @@ class Actions:
         acount = self.alpaca.get_account()
         buyingpower = acount.buying_power
         print(buyingpower)
-        return buyingpower
+        if buyingpower == 0 or "0" in buyingpower:
+            print("0 is it")
+            return 1000
+        else:
+            return buyingpower
 
     def getqty(self, stock):
         buybuy = Actions().getbuying()
@@ -188,9 +171,10 @@ class Actions:
         buybuy = float(buybuy)
         safemon = buybuy - 100
         safega = round(ga)
-        amount = safemon/safega
+        amount = safemon / safega
         amount = round(amount)
         return amount
+
     def decide(self, option):
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         realfuture = future[0]
@@ -206,6 +190,7 @@ class Actions:
             return False
         else:
             return True
+
     def getorders(self):
 
         orders = self.alpaca.list_orders(
@@ -214,7 +199,8 @@ class Actions:
             nested=True  # show nested multi-leg orders
         )
         niceorders = str(orders[0])
-        betterorders = niceorders.replace("Order(", "").replace(")", "").replace("   ", "").replace("'", '"').replace('":', '" :')
+        betterorders = niceorders.replace("Order(", "").replace(")", "").replace("   ", "").replace("'", '"').replace(
+            '":', '" :')
         bestorders = ast.literal_eval(betterorders)
         print(niceorders)
         print(betterorders)
@@ -224,6 +210,7 @@ class Actions:
 
         print("FINAL ORDERS: " + repr(symbol))
         return bestorders
+
     def project(self, option):
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         return future[0]
@@ -260,12 +247,6 @@ class Actions:
                 riseup = False
 
             time.sleep(30)
-
-
-
-
-
-
 
 
 # Actions.saystock()

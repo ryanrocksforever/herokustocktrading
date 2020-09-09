@@ -112,7 +112,8 @@ def main(name=None):
     print("endprice")
     #endprice = back.Actions().project(option="AAPL")
     print("price:")
-    price = barget.get("AAPL")
+    #price = barget.get("AAPL")
+    price = "0"
     print("profit:")
     profit = back.Actions().profit()
     #print(profit)
@@ -212,4 +213,4 @@ def stop():
 alreadyrunning = False
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='192.168.1.2', port=80)

@@ -15,7 +15,7 @@ import barset as barget
 class mainstuff:
     def __init__(self):
         # self.best = back.Actions().beststock()
-        self.best = "AAPL"
+        self.best = back.Actions().beststock(uponly=False)
         self.runthing = True
 
     def run(self):
@@ -157,3 +157,4 @@ class mainstuff:
 if __name__ == "__main__":
     # stuff only to run when not called via 'import' here
     mainstuff()
+

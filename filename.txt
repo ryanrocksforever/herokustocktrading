@@ -1,0 +1,501 @@
+endprice
+price:
+profit:
+Today's portfolio balance change: $-1.1900000000000546
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '061ff263-b764-4a69-898d-05c71c795f28',
+    'created_at': '2020-09-08T19:45:32.657688Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-08T19:45:32.851668Z',
+    'filled_avg_price': '134.51',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': '97d09c92-157f-419e-9dc9-74c903a36f7b',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-08T19:45:32.638367Z',
+    'symbol': 'DIS',
+    'time_in_force': 'gtc',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-08T19:45:32.870969Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "061ff263-b764-4a69-898d-05c71c795f28",
+ "created_at" : "2020-09-08T19:45:32.657688Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-08T19:45:32.851668Z",
+ "filled_avg_price" : "134.51",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "97d09c92-157f-419e-9dc9-74c903a36f7b",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-08T19:45:32.638367Z",
+ "symbol" : "DIS",
+ "time_in_force" : "gtc",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-08T19:45:32.870969Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-07-30 22:01:02","value":false,"label":"True"}
+starting
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mPOST /run HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $-1.1900000000000546
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '061ff263-b764-4a69-898d-05c71c795f28',
+    'created_at': '2020-09-08T19:45:32.657688Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-08T19:45:32.851668Z',
+    'filled_avg_price': '134.51',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': '97d09c92-157f-419e-9dc9-74c903a36f7b',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-08T19:45:32.638367Z',
+    'symbol': 'DIS',
+    'time_in_force': 'gtc',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-08T19:45:32.870969Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "061ff263-b764-4a69-898d-05c71c795f28",
+ "created_at" : "2020-09-08T19:45:32.657688Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-08T19:45:32.851668Z",
+ "filled_avg_price" : "134.51",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "97d09c92-157f-419e-9dc9-74c903a36f7b",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-08T19:45:32.638367Z",
+ "symbol" : "DIS",
+ "time_in_force" : "gtc",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-08T19:45:32.870969Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-08T19:45:32.638367Z",
+ "symbol" : "DIS",
+ "time_in_force" : "gtc",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-08T19:45:32.870969Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-07-30 22:01:02","value":false,"label":"True"}
+starting
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mPOST /run HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:34] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:34] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+-144.78003
+AMZN
+-144.78003
+AMZN
+4082.54
+0 is it
+{'AMZN': [Bar({   'c': 3149.34,
+    'h': 3149.37,
+    'l': 3143.21,
+    'o': 3147.37,
+    't': 1599595140,
+    'v': 11792})]}
+3149.34
+0
+False
+722 minutes til market open.
+endprice
+price:
+profit:
+Today's portfolio balance change: $-1.1900000000000546
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '061ff263-b764-4a69-898d-05c71c795f28',
+    'created_at': '2020-09-08T19:45:32.657688Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-08T19:45:32.851668Z',
+    'filled_avg_price': '134.51',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': '97d09c92-157f-419e-9dc9-74c903a36f7b',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-08T19:45:32.638367Z',
+    'symbol': 'DIS',
+    'time_in_force': 'gtc',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-08T19:45:32.870969Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "061ff263-b764-4a69-898d-05c71c795f28",
+ "created_at" : "2020-09-08T19:45:32.657688Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-08T19:45:32.851668Z",
+ "filled_avg_price" : "134.51",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "97d09c92-157f-419e-9dc9-74c903a36f7b",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-08T19:45:32.638367Z",
+ "symbol" : "DIS",
+ "time_in_force" : "gtc",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-08T19:45:32.870969Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-08T19:45:32.638367Z",
+ "symbol" : "DIS",
+ "time_in_force" : "gtc",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-08T19:45:32.870969Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:22:46] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-07-30 22:01:02","value":false,"label":"True"}
+starting
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mPOST /run HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:32] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:34] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:27:34] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:28:06] "[37mGET /main HTTP/1.1[0m" 200 -
+127.0.0.1 - - [08/Sep/2020 18:28:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:800/ (Press CTRL+C to quit)
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:5000/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:58:43] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:58:43] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+Traceback (most recent call last):
+  File "D:/Apps/Github/herokustocktrading/flaskserver.py", line 216, in <module>
+    app.run(host='192.168.1.29')
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 990, in run
+    run_simple(host, port, self, **options)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 1052, in run_simple
+    inner()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 1005, in inner
+    fd=fd,
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 848, in make_server
+    host, port, app, request_handler, passthrough_errors, ssl_context, fd=fd
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 740, in __init__
+    HTTPServer.__init__(self, server_address, handler)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 453, in __init__
+    self.server_bind()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\http\server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 467, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10049] The requested address is not valid in its context
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
