@@ -14,9 +14,11 @@ print(poop)
 API_KEY = "PKW2FI9P4854V34RX698"
 API_SECRET = "BIyasVLegtVpSq5ug2zilpIuGAeMFUaeqZZPd06R"
 APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
-
+global prediction
+prediction = 0
 
 class Actions:
+    global prediction
 
     def __init__(self):
         self.alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
@@ -44,10 +46,9 @@ class Actions:
     #   stonks = self.stockuniverse
     #  print(stonks)
     def beststock(self, uponly):
-        global beststock
-        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers"
+        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-movers"
 
-        querystring = {"region": "US"}
+        querystring = {"region": "US", "start": "0", "lang": "en-US", "count": "6"}
 
         headers = {
             'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com",
@@ -56,35 +57,22 @@ class Actions:
 
         response = requests.request("GET", url, headers=headers, params=querystring)
 
-        # print(response.text)
+        #print(response.text)
 
         jsonfromit = json.loads(response.text)
         # print(jsonfromit['finance']['result'][0]['quotes'])
-        quotes = jsonfromit['finance']['result'][0]['quotes']
-        maxchange = 0
-        for x in quotes:
-            # print(x)
-            if uponly is False:
-                if abs(x["regularMarketChange"]) > maxchange and self.isTradable(x["symbol"]) is True:
-                    maxchange = abs(x["regularMarketChange"])
-                    # maxchange = x["regularMarketChange"]
-                    beststock = x
-            else:
-                # print(uponly)
-                if abs(x["regularMarketChange"]) > maxchange and x["regularMarketChange"] > 0 and self.isTradable(
-                        x["symbol"]) is True:
-                    maxchange = abs(x["regularMarketChange"])
-                    # maxchange = x["regularMarketChange"]
-                    beststock = x
+        quotes = jsonfromit['finance']['result'][0]["quotes"][0]
 
-        print(beststock["regularMarketChange"])
-        print(beststock["symbol"])
-        return beststock["symbol"]
+
+        stock = quotes["symbol"]
+        print(stock)
+        return stock
 
     def flatten(self, stock, qty, side):
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
 
     def awaitMarketOpen(self):
+        global prediction
         isOpen = self.alpaca.get_clock().is_open
         print(isOpen)
         while (not isOpen):
@@ -94,7 +82,22 @@ class Actions:
             timeToOpen = int((openingTime - currTime) / 60)
             print(str(timeToOpen) + " minutes til market open.")
             time.sleep(60)
-            isOpen = self.alpaca.get_clock().is_open
+            if(timeToOpen <=10):
+                print("predicting")
+                stockfile = open("stockfile.txt", "r")
+                stock = stockfile.readlines(1)[0]
+                print(stock)
+                try:
+                    prediction = self.project(stock)
+                except:
+                    time.sleep(2)
+                    prediction = self.project(stock)
+                print(prediction)
+            try:
+                isOpen = self.alpaca.get_clock().is_open
+            except:
+                print("error")
+                self.awaitMarketOpen()
 
     def closingTime(self):
         clock = self.alpaca.get_clock()
@@ -124,7 +127,7 @@ class Actions:
             print("Market closing soon.  Closing positions.")
             # side = 'sell'
             if start is not True:
-                #self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+                # self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
                 isOpen = self.alpaca.get_clock().is_open
                 print(isOpen)
                 while isOpen:
@@ -134,7 +137,11 @@ class Actions:
                     timeToOpen = int((closingTime - currTime) / 60)
                     print(str(timeToOpen) + " minutes til market close.")
                     time.sleep(60)
-                    isOpen = self.alpaca.get_clock().is_open
+                    try:
+                        isOpen = self.alpaca.get_clock().is_open
+                    except:
+                        print("error")
+                        self.awaitMarketClose(start=False)
 
     def isTradable(self, symbol):
         try:
@@ -176,7 +183,7 @@ class Actions:
         return amount
 
     def decide(self, option):
-        future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
+        future = prediction
         realfuture = future[0]
         symbol = option
         v = barthing.get(symbol=symbol)
@@ -212,6 +219,7 @@ class Actions:
         return bestorders
 
     def project(self, option):
+        stocker.predict
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         return future[0]
 
@@ -228,7 +236,7 @@ class Actions:
 
     def rideup(self, stock, startprice, qty):
         riseup = True
-        previousprice = barthing.get
+        previousprice = barthing.get(stock)
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice >= currentprice <= previousprice - 0.5:
@@ -236,10 +244,12 @@ class Actions:
                 riseup = False
 
             time.sleep(30)
+        else:
+            self.ridedown(stock, startprice, qty)
 
     def ridedown(self, stock, startprice, qty):
         riseup = True
-        previousprice = barthing.get
+        previousprice = barthing.get(stock)
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice <= currentprice >= previousprice + 0.5:
@@ -247,6 +257,8 @@ class Actions:
                 riseup = False
 
             time.sleep(30)
+        else:
+            self.rideup(stock, startprice, qty)
 
 
 # Actions.saystock()

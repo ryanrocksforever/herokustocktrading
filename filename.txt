@@ -499,3 +499,1105 @@ got here2
 192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
 192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
 192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+Traceback (most recent call last):
+  File "D:/Apps/Github/herokustocktrading/flaskserver.py", line 216, in <module>
+    app.run(host='192.168.1.29')
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 990, in run
+    run_simple(host, port, self, **options)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 1052, in run_simple
+    inner()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 1005, in inner
+    fd=fd,
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 848, in make_server
+    host, port, app, request_handler, passthrough_errors, ssl_context, fd=fd
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 740, in __init__
+    HTTPServer.__init__(self, server_address, handler)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 453, in __init__
+    self.server_bind()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\http\server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 467, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10049] The requested address is not valid in its context
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 1005, in inner
+    fd=fd,
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 848, in make_server
+    host, port, app, request_handler, passthrough_errors, ssl_context, fd=fd
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\site-packages\werkzeug\serving.py", line 740, in __init__
+    HTTPServer.__init__(self, server_address, handler)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 453, in __init__
+    self.server_bind()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\http\server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 467, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10049] The requested address is not valid in its context
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 453, in __init__
+    self.server_bind()
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\http\server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "C:\Users\Brend\AppData\Local\Programs\Python\Python36\lib\socketserver.py", line 467, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10049] The requested address is not valid in its context
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:20:25","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:36] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:20:25","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+192.168.1.2 - - [08/Sep/2020 19:59:41] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [08/Sep/2020 19:59:42] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:20:25","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET / HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:31] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:32] "[37mGET /login HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:54:33] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.1.2 - - [10/Sep/2020 15:55:03] "[37mGET /protected HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:20:25","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 18:22:59] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:00] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:23:28","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 18:23:22] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:23] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+endprice
+price:
+profit:
+Today's portfolio balance change: $181.57999999999993
+Order({   'asset_class': 'us_equity',
+    'asset_id': '2f34c0b3-a4aa-4959-b52c-3c41b2c246c4',
+    'canceled_at': None,
+    'client_order_id': '5da3f669-c99e-4417-954a-e2f1e0304644',
+    'created_at': '2020-09-10T15:34:36.138661Z',
+    'expired_at': None,
+    'extended_hours': False,
+    'failed_at': None,
+    'filled_at': '2020-09-10T15:34:36.269569Z',
+    'filled_avg_price': '135.48',
+    'filled_qty': '7',
+    'hwm': None,
+    'id': 'a7f6113a-e598-4b60-a3ae-5a92cc3b3bac',
+    'legs': None,
+    'limit_price': None,
+    'order_class': '',
+    'order_type': 'market',
+    'qty': '7',
+    'replaced_at': None,
+    'replaced_by': None,
+    'replaces': None,
+    'side': 'sell',
+    'status': 'filled',
+    'stop_price': None,
+    'submitted_at': '2020-09-10T15:34:36.133777Z',
+    'symbol': 'DIS',
+    'time_in_force': 'day',
+    'trail_percent': None,
+    'trail_price': None,
+    'type': 'market',
+    'updated_at': '2020-09-10T15:34:36.281517Z'})
+{"asset_class" : "us_equity",
+ "asset_id" : "2f34c0b3-a4aa-4959-b52c-3c41b2c246c4",
+ "canceled_at" : None,
+ "client_order_id" : "5da3f669-c99e-4417-954a-e2f1e0304644",
+ "created_at" : "2020-09-10T15:34:36.138661Z",
+ "expired_at" : None,
+ "extended_hours" : False,
+ "failed_at" : None,
+ "filled_at" : "2020-09-10T15:34:36.269569Z",
+ "filled_avg_price" : "135.48",
+ "filled_qty" : "7",
+ "hwm" : None,
+ "id" : "a7f6113a-e598-4b60-a3ae-5a92cc3b3bac",
+ "legs" : None,
+ "limit_price" : None,
+ "order_class" : "",
+ "order_type" : "market",
+ "qty" : "7",
+ "replaced_at" : None,
+ "replaced_by" : None,
+ "replaces" : None,
+ "side" : "sell",
+ "status" : "filled",
+ "stop_price" : None,
+ "submitted_at" : "2020-09-10T15:34:36.133777Z",
+ "symbol" : "DIS",
+ "time_in_force" : "day",
+ "trail_percent" : None,
+ "trail_price" : None,
+ "type" : "market",
+ "updated_at" : "2020-09-10T15:34:36.281517Z"}
+asset_class
+asset_id
+canceled_at
+client_order_id
+created_at
+expired_at
+extended_hours
+failed_at
+filled_at
+filled_avg_price
+filled_qty
+hwm
+id
+legs
+limit_price
+order_class
+order_type
+qty
+replaced_at
+replaced_by
+replaces
+side
+status
+stop_price
+submitted_at
+symbol
+time_in_force
+trail_percent
+trail_price
+type
+updated_at
+FINAL ORDERS: 'DIS'
+192.168.1.2 - - [10/Sep/2020 15:55:04] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/browser-trader-style.css HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:05] "[37mGET /static/cors-api.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /static/Chart.bundle.js HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:20","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 15:55:14] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:15] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:16] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-10 22:55:44","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:39] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 15:55:41] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:20:25","value":false,"label":"False"}
+stopping
+stopped
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mPOST /stop HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:20] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:20:22] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:21:27] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+got here
+got here2
+ * Serving Flask app "flaskserver" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://192.168.1.2:80/ (Press CTRL+C to quit)
+192.168.1.2 - - [10/Sep/2020 18:22:59] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:00] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+{"id":"b98a6c8b-fda9-4f0f-af42-a4d9323f51ab","created_at":"2020-06-10 21:38:46","updated_at":"2020-09-11 01:23:28","value":false,"label":"True"}
+starting
+192.168.1.2 - - [10/Sep/2020 18:23:22] "[37mPOST /run HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:23] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:24] "[37mGET /main HTTP/1.1[0m" 200 -
+192.168.1.2 - - [10/Sep/2020 18:23:24] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -

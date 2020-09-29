@@ -1,5 +1,5 @@
 import sys
-
+import subprocess as sp
 import gevent
 from gevent import monkey
 monkey.patch_all()
@@ -18,6 +18,8 @@ import barset as barget
 from flask import Blueprint
 
 # from . import db
+
+
 
 # monkey.patch_all()
 
@@ -172,8 +174,9 @@ def run():
                                headers={"Authorization": "Token " + booleantoken})
         print(patch.text)
 
-        alreadyrunning = True
-        greenlet = gevent.spawn(Main_Run.mainstuff)
+        extProc = sp.Popen(['python', 'Main_Run.py'])  # runs myPyScript.py
+
+        status = sp.Popen.poll(extProc)  # status should be 'None'
         print("starting")
         return '<head>  <meta http-equiv="refresh" content="1; URL=/main" /></head><body>  <p>If you are not redirected in five seconds, <a href="https://127.0.0.1:5000/">click here</a>.</p></body>'
 
@@ -192,7 +195,9 @@ def stop():
         # stop_event.set()
         # mainthread.kill()
         try:
-            greenlet.kill()
+            sp.Popen.terminate(extProc)  # closes the process
+
+            status = sp.Popen.poll(extProc)  # status should now be something other than 'None' ('1' in my testing)
         except:
             print("cant kill")
         print("stopped")

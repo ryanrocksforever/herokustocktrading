@@ -16,10 +16,6 @@ class mainstuff:
     def __init__(self):
         # self.best = back.Actions().beststock()
         self.best = back.Actions().beststock(uponly=False)
-        print("writing fiel")
-        sfile = open("stockfile.txt", "w")
-        sfile.write(self.best)
-        sfile.close()
         self.runthing = True
 
     def run(self):
@@ -57,27 +53,11 @@ class mainstuff:
             sideabc = "buy"
             goal = project - 0.5
             if power > real:
-                back.Actions().submitOrder(qty=amount, stock=stock, side='sell')
-                print("sold" + stock)
 
-                while real > goal and back.Actions().closingTime() is not True:
-                    v = barget.get(stock=symbol)
-                    real = float(v)
-                    closetime = back.Actions().closingTime()
-                    if closetime is True or real < goal:
-                        break
-                    print(real)
-                    time.sleep(1)
-                    print("sleepong 1 sec")
+                while back.Actions().closingTime() is not True:
+                    back.Actions().rideup(stock, 0, qty)
 
-                if real < goal:
-                    v = barget.get(stock=symbol)
-                    real = float(v)
-                    print("buying")
-                    print(real)
-                    print("<")
-                    print(goal)
-                    back.Actions().ridedown(symbol, v, amount)
+
                 else:
                     if back.Actions().closingTime() is True:
                         v = barget.get(stock=symbol)
@@ -103,33 +83,20 @@ class mainstuff:
             goal = project + 0.5
             sideabc = "sell"
             if power > real:
-                back.Actions().submitOrder(qty=amount, stock=stock, side='buy')
-                print("bought" + stock)
-                closetime = back.Actions().closingTime()
-                while real < goal or closetime is True:
-                    v = barget.get(stock=symbol)
-                    real = float(v)
-                    closetime = back.Actions().closingTime()
-                    if closetime is True or real < goal:
-                        break
-                    print(back.Actions().closingTime())
-                    print(real)
-                    print("waiting")
-                    time.sleep(1)
 
-                if real > goal:
-                    print("selling")
-                    print(real)
-                    print("<")
-                    print(goal)
-                    back.Actions().rideup()
+                while back.Actions().closingTime() is not True:
+                    back.Actions().ridedown(stock, 0, qty)
+
+
                 else:
                     if back.Actions().closingTime() is True:
-                        print("selling")
+                        v = barget.get(stock=symbol)
+                        real = float(v)
+                        print("buying")
                         print(real)
                         print("<")
                         print(goal)
-                        back.Actions().flatten(stock=symbol, qty=amount, side='sell')
+                        back.Actions().flatten(stock=symbol, qty=amount, side="buy")
             else:
                 print("not enough power")
 
@@ -161,4 +128,3 @@ class mainstuff:
 if __name__ == "__main__":
     # stuff only to run when not called via 'import' here
     mainstuff()
-
