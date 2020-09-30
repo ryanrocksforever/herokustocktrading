@@ -65,8 +65,19 @@ class Actions:
 
 
         stock = quotes["symbol"]
-        print(stock)
-        return stock
+        try:
+            tradable = self.alpaca.get_asset(stock)
+            tradable = json.loads(tradable)
+            tradable = tradable["tradable"]
+        except:
+            tradable = False    
+        if tradable:
+            print(stock)
+            return stock
+        else:
+            print("Going TSLA")
+            return "TSLA"
+        
 
     def flatten(self, stock, qty, side):
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
@@ -184,7 +195,12 @@ class Actions:
 
     def decide(self, option):
         future = prediction
-        realfuture = future[0]
+        print(future)
+        try:
+        	realfuture=future[0]
+        except:
+        	print("exception")
+        	realfuture=future
         symbol = option
         v = barthing.get(symbol=symbol)
         # real = future.asset
