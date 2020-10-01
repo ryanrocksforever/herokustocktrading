@@ -7,6 +7,7 @@ import re
 import barthing
 import json
 import ast
+import threading
 
 poop = stocker.predict.tomorrow('SBUX')
 print(poop)
@@ -80,7 +81,10 @@ class Actions:
         
 
     def flatten(self, stock, qty, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+        x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        x.start()
+        x.join()
+
 
     def awaitMarketOpen(self):
         global prediction
@@ -125,7 +129,10 @@ class Actions:
             return False
 
     def submitOrder(self, qty, stock, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+        x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        x.start()
+        x.join()
+
 
     def awaitMarketClose(self, qty, stock, side, start):
         clock = self.alpaca.get_clock()
