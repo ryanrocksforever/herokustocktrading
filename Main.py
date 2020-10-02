@@ -26,7 +26,7 @@ class mainstuff:
         stock = self.best
         # qty = back.Actions().getqty(stock)
         qty = back.Actions().getqty(stock)
-        print(qty)
+        print("qty: " + str(qty))
         back.Actions().awaitMarketClose(qty=qty, stock=self.best, side="sell", start=True)
         back.Actions().awaitMarketOpen()
         if back.Actions().closingTime() is True:
