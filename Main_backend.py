@@ -242,7 +242,7 @@ class Actions:
         return bestorders
 
     def project(self, option):
-        stocker.predict
+        #stocker.predict
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         return future[0]
 
@@ -263,7 +263,9 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice >= currentprice <= previousprice - 0.5:
-                self.submitOrder(qty, stock, "sell")
+                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="sell", type='market', time_in_force='gtc'))
+                x.start()
+                x.join()
                 riseup = False
 
             time.sleep(30)
@@ -276,7 +278,9 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice <= currentprice >= previousprice + 0.5:
-                self.submitOrder(qty, stock, "buy")
+                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="buy", type='market', time_in_force='gtc'))
+                x.start()
+                x.join()
                 riseup = False
 
             time.sleep(30)
