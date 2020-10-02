@@ -7,6 +7,7 @@ import re
 import barthing
 import json
 import ast
+import threading
 
 poop = stocker.predict.tomorrow('SBUX')
 print(poop)
@@ -84,7 +85,11 @@ class Actions:
 
     def awaitMarketOpen(self):
         global prediction
-        isOpen = self.alpaca.get_clock().is_open
+        try:
+            isOpen = self.alpaca.get_clock().is_open
+        except:
+            time.sleep(5)
+            isOpen = self.alpaca.get_clock().is_open
         print(isOpen)
         while (not isOpen):
             clock = self.alpaca.get_clock()
@@ -128,7 +133,11 @@ class Actions:
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
 
     def awaitMarketClose(self, qty, stock, side, start):
-        clock = self.alpaca.get_clock()
+        try:
+            clock = self.alpaca.get_clock()
+        except:
+            time.sleep(5)
+            clock = self.alpaca.get_clock()
         closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
         currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
         self.timeToClose = closingTime - currTime

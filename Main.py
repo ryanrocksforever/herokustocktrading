@@ -9,7 +9,7 @@ import pandas as pd
 import Main_backend as back
 import barset as barget
 
-
+pdt = True
 # pooo = Main_backend.Actions().saystock()
 # print(pooo)
 class mainstuff:
@@ -77,7 +77,10 @@ class mainstuff:
                     print(real)
                     print("<")
                     print(goal)
-                    back.Actions().ridedown(symbol, v, amount)
+                    if not pdt:
+                        back.Actions().ridedown(symbol, v, amount)
+                    else:
+                        back.Actions().flatten(symbol, amount, 'sell')
                 else:
                     if back.Actions().closingTime() is True:
                         v = barget.get(stock=symbol)
@@ -122,7 +125,10 @@ class mainstuff:
                     print(real)
                     print("<")
                     print(goal)
-                    back.Actions().rideup()
+                    if not pdt:
+                        back.Actions().rideup(symbol, v, amount)
+                    else:
+                        back.Actions().flatten(symbol, amount, 'buy')
                 else:
                     if back.Actions().closingTime() is True:
                         print("selling")
