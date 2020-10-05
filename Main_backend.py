@@ -90,7 +90,11 @@ class Actions:
 
     def awaitMarketOpen(self):
         global prediction
-        isOpen = self.alpaca.get_clock().is_open
+        try:
+            isOpen = self.alpaca.get_clock().is_open
+        except:
+            time.sleep(30)
+            isOpen = self.alpaca.get_clock().is_open
         print("isOpen: " + str(isOpen))
         while not isOpen:
             clock = self.alpaca.get_clock()
@@ -137,7 +141,11 @@ class Actions:
         x.join()
 
     def awaitMarketClose(self, qty, stock, side, start):
-        clock = self.alpaca.get_clock()
+        try:
+            clock = self.alpaca.get_clock()
+        except:
+            time.sleep(30)
+            clock = self.alpaca.get_clock()
         closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
         currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
         self.timeToClose = closingTime - currTime
