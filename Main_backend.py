@@ -1,3 +1,5 @@
+#Update 10-7
+
 import stocker
 import alpaca_trade_api as tradeapi
 import time
