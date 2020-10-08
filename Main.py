@@ -15,11 +15,13 @@ pdt = True
 class mainstuff:
     def __init__(self):
         # self.best = back.Actions().beststock()
-        self.best = back.Actions().beststock(uponly=False)
+        time.sleep(10)
+        self.best = back.Actions().beststock(None, uponly=False)
         print("writing fiel")
         sfile = open("stockfile.txt", "w")
         sfile.write(self.best)
         sfile.close()
+        #time.sleep(5)
         self.runthing = True
 
     def run(self):

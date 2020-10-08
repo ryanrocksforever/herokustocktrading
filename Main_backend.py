@@ -15,12 +15,16 @@ API_SECRET = apikeys.API_SECRET
 APCA_API_BASE_URL = apikeys.APCA_API_BASE_URL
 global prediction
 prediction = 0
+global anothernum
+global tradablereal
+anothernum = 0
 
 
 class Actions:
     global prediction
 
     def __init__(self):
+        self.tradablereal = True
         self.alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
 
         self.found = "AAPL"
@@ -34,6 +38,7 @@ class Actions:
         self.longAmount = 0
         self.shortAmount = 0
         self.timeToClose = None
+        #self.tradablereal
         # stockUniverse = [found, found1, found2, found3, found4, found5, found6, found7, found8, found9, found10,
         #                found11, found12, found13, found14, found15, found16, found17, ]
         # self.stockuniverse = stockUniverse
@@ -45,7 +50,9 @@ class Actions:
     # def saystock(self):
     #   stonks = self.stockuniverse
     #  print(stonks)
-    def beststock(self, uponly):
+    def beststock(self, another, uponly):
+        global anothernum
+        skip=False
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-movers"
 
         querystring = {"region": "US", "start": "0", "lang": "en-US", "count": "6"}
@@ -61,7 +68,11 @@ class Actions:
 
         jsonfromit = json.loads(response.text)
         # print(jsonfromit['finance']['result'][0]['quotes'])
-        quotes = jsonfromit['finance']['result'][0]["quotes"][0]
+        try:
+            quotes = jsonfromit['finance']['result'][0]["quotes"][anothernum]
+        except:
+            skip=True
+            quotes = jsonfromit['finance']['result'][0]["quotes"][anothernum]
         print(quotes)
 
         stock = quotes["symbol"]
@@ -69,13 +80,19 @@ class Actions:
         try:
             tradable = self.alpaca.get_asset(stock)
             print(tradable)
-            tradable = tradable.tradable
-            print(tradable)
+            self.tradablereal = tradable.tradable
+            print("Tradable: "+str(self.tradablereal))
+            time.sleep(1)
             # tradable = tradable['tradable']
 
-        except:
-            tradable = False
-        if tradable:
+        except Exception as e:
+            print(e)
+            if skip is not True:
+                anothernum = anothernum + 1
+                self.beststock(anothernum, False)
+            else:
+                self.tradablereal = False
+        if self.tradablereal is True:
             print("stock: " + stock)
             return stock
         else:
