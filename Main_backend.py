@@ -8,15 +8,14 @@ import barthing
 import json
 import ast
 import threading
+import apikeys
 
-poop = stocker.predict.tomorrow('SBUX')
-print(poop)
-
-API_KEY = "PKW2FI9P4854V34RX698"
-API_SECRET = "BIyasVLegtVpSq5ug2zilpIuGAeMFUaeqZZPd06R"
-APCA_API_BASE_URL = "https://paper-api.alpaca.markets"
+API_KEY = apikeys.API_KEY
+API_SECRET = apikeys.API_SECRET
+APCA_API_BASE_URL = apikeys.APCA_API_BASE_URL
 global prediction
 prediction = 0
+
 
 class Actions:
     global prediction
@@ -58,57 +57,63 @@ class Actions:
 
         response = requests.request("GET", url, headers=headers, params=querystring)
 
-        #print(response.text)
+        # print(response.text)
 
         jsonfromit = json.loads(response.text)
         # print(jsonfromit['finance']['result'][0]['quotes'])
         quotes = jsonfromit['finance']['result'][0]["quotes"][0]
-
+        print(quotes)
 
         stock = quotes["symbol"]
+        print(stock)
         try:
             tradable = self.alpaca.get_asset(stock)
-            tradable = json.loads(tradable)
-            tradable = tradable["tradable"]
+            print(tradable)
+            tradable = tradable.tradable
+            print(tradable)
+            # tradable = tradable['tradable']
+
         except:
-            tradable = False    
+            tradable = False
         if tradable:
-            print(stock)
+            print("stock: " + stock)
             return stock
         else:
             print("Going TSLA")
             return "TSLA"
-        
 
     def flatten(self, stock, qty, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+        x = threading.Thread(
+            target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        x.start()
+        x.join()
 
     def awaitMarketOpen(self):
         global prediction
         try:
             isOpen = self.alpaca.get_clock().is_open
         except:
-            time.sleep(5)
+            time.sleep(30)
             isOpen = self.alpaca.get_clock().is_open
-        print(isOpen)
-        while (not isOpen):
+        print("isOpen: " + str(isOpen))
+        while not isOpen:
             clock = self.alpaca.get_clock()
             openingTime = clock.next_open.replace(tzinfo=datetime.timezone.utc).timestamp()
             currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
             timeToOpen = int((openingTime - currTime) / 60)
             print(str(timeToOpen) + " minutes til market open.")
             time.sleep(60)
-            if(timeToOpen <=10):
+            if (timeToOpen <= 10):
                 print("predicting")
                 stockfile = open("stockfile.txt", "r")
                 stock = stockfile.readlines(1)[0]
-                print(stock)
+                print("stock: " + stock)
                 try:
                     prediction = self.project(stock)
                 except:
                     time.sleep(2)
                     prediction = self.project(stock)
-                print(prediction)
+                print("prediction: " + str(prediction))
             try:
                 isOpen = self.alpaca.get_clock().is_open
             except:
@@ -130,13 +135,16 @@ class Actions:
             return False
 
     def submitOrder(self, qty, stock, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+        x = threading.Thread(
+            target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        x.start()
+        x.join()
 
     def awaitMarketClose(self, qty, stock, side, start):
         try:
             clock = self.alpaca.get_clock()
         except:
-            time.sleep(5)
+            time.sleep(30)
             clock = self.alpaca.get_clock()
         closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
         currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
@@ -149,7 +157,7 @@ class Actions:
             if start is not True:
                 # self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
                 isOpen = self.alpaca.get_clock().is_open
-                print(isOpen)
+                print("isOpen: " + str(isOpen))
                 while isOpen:
                     clock = self.alpaca.get_clock()
                     closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
@@ -184,9 +192,9 @@ class Actions:
     def getbuying(self):
         acount = self.alpaca.get_account()
         buyingpower = acount.buying_power
-        print(buyingpower)
-        if buyingpower == 0 or "0" in buyingpower:
-            print("0 is it")
+        print("Buying Power: " + str(buyingpower))
+        if buyingpower == 0:
+            print("0 is it, " + buyingpower)
             return 1000
         else:
             return buyingpower
@@ -196,27 +204,30 @@ class Actions:
         ga = barthing.get(stock)
         ga = float(ga)
         buybuy = float(buybuy)
+        print(buybuy)
         safemon = buybuy - 100
-        safega = round(ga)
+        safega = ga
         amount = safemon / safega
+        print(amount)
         amount = round(amount)
+        print("amount: "+str(amount))
         return amount
 
     def decide(self, option):
         future = prediction
-        print(future)
+        print("future: " + str(future))
         try:
-        	realfuture=future[0]
+            realfuture = future[0]
         except:
-        	print("exception")
-        	realfuture=future
+            print("exception")
+            realfuture = future
         symbol = option
         v = barthing.get(symbol=symbol)
         # real = future.asset
         current = v
-        print(future)
-        print(realfuture)
-        print(current)
+        print("furture: "+str(future))
+        print("realfuture: "+str(realfuture))
+        print("current: "+str(current))
 
         if current <= realfuture:
             return False
@@ -244,7 +255,7 @@ class Actions:
         return bestorders
 
     def project(self, option):
-        stocker.predict
+        # stocker.predict
         future = stocker.predict.tomorrow(option, steps=2, training=0.99, period=20, years=1, error_method='mape')
         return future[0]
 
@@ -265,7 +276,10 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice >= currentprice <= previousprice - 0.5:
-                self.submitOrder(qty, stock, "sell")
+                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="sell", type='market',
+                                                                     time_in_force='gtc'))
+                x.start()
+                x.join()
                 riseup = False
 
             time.sleep(30)
@@ -278,7 +292,10 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice <= currentprice >= previousprice + 0.5:
-                self.submitOrder(qty, stock, "buy")
+                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="buy", type='market',
+                                                                     time_in_force='gtc'))
+                x.start()
+                x.join()
                 riseup = False
 
             time.sleep(30)
