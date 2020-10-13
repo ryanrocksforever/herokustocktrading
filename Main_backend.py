@@ -154,8 +154,7 @@ class Actions:
             return False
 
     def submitOrder(self, qty, stock, side):
-        x = threading.Thread(
-            target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
         x.start()
         x.join()
 
@@ -216,7 +215,8 @@ class Actions:
             print("0 is it, " + buyingpower)
             return 1000
         else:
-            return buyingpower
+            buyingminus = float(buyingpower)*0.005
+            return float(buyingpower)-float(buyingminus)
 
     def getqty(self, stock):
         buybuy = Actions().getbuying()
@@ -295,10 +295,7 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice >= currentprice <= previousprice - 0.5:
-                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="sell", type='market',
-                                                                     time_in_force='gtc'))
-                x.start()
-                x.join()
+                self.submitOrder(stock=stock, qty=qty, side="sell")
                 riseup = False
 
             time.sleep(30)
@@ -311,10 +308,7 @@ class Actions:
         while riseup is True:
             currentprice = barthing.get(stock)
             if previousprice <= currentprice >= previousprice + 0.5:
-                x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side="buy", type='market',
-                                                                     time_in_force='gtc'))
-                x.start()
-                x.join()
+                self.submitOrder(stock=stock, qty=qty, side="buy")
                 riseup = False
 
             time.sleep(30)

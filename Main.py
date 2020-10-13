@@ -109,7 +109,7 @@ class mainstuff:
             sideabc = "sell"
             if power > real:
                 back.Actions().submitOrder(qty=amount, stock=stock, side='buy')
-                print("bought" + stock)
+                print("bought: " + stock)
                 closetime = back.Actions().closingTime()
                 while real < goal or closetime is True:
                     v = barget.get(stock=symbol)
