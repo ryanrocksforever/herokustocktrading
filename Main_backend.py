@@ -102,10 +102,7 @@ class Actions:
             return "TSLA"
 
     def flatten(self, stock, qty, side):
-        x = threading.Thread(
-            target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
-        x.start()
-        x.join()
+        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
 
     def awaitMarketOpen(self):
         global prediction
@@ -154,9 +151,8 @@ class Actions:
             return False
 
     def submitOrder(self, qty, stock, side):
-        x = threading.Thread(target=self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
-        x.start()
-        x.join()
+        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+
 
     def awaitMarketClose(self, qty, stock, side, start):
         try:
