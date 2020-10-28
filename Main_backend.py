@@ -27,6 +27,7 @@ class Actions:
 
     def __init__(self):
         self.tradablereal = True
+        self.shortable = True
         self.alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
 
         self.found = "AAPL"
@@ -82,6 +83,7 @@ class Actions:
         try:
             tradable = self.alpaca.get_asset(stock)
             print(tradable)
+            self.shortable = tradable.shortable
             self.tradablereal = tradable.tradable
             print("Tradable: "+str(self.tradablereal))
             time.sleep(1)
@@ -94,7 +96,7 @@ class Actions:
                 self.beststock(anothernum, False)
             else:
                 self.tradablereal = False
-        if self.tradablereal is True:
+        if self.tradablereal is True and self.shortable is True:
             print("stock: " + stock)
             return stock
         else:
@@ -103,6 +105,7 @@ class Actions:
 
     def flatten(self, stock, qty, side):
         self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
+        print("Flattened: "+stock)
 
     def awaitMarketOpen(self):
         global prediction
@@ -151,7 +154,7 @@ class Actions:
             return False
 
     def submitOrder(self, qty, stock, side):
-        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc'))
+        self.alpaca.submit_order(symbol=stock, qty=qty, side=side, type='market', time_in_force='gtc')
 
 
     def awaitMarketClose(self, qty, stock, side, start):

@@ -1,13 +1,10 @@
-#import Main_backend
-import foo
-import ast
-import inspect
-def contains_explicit_return(f):
-    return any(isinstance(node, ast.Return) for node in ast.walk(ast.parse(inspect.getsource(f))))
+import alpaca_trade_api as tradeapi
+import apikeys
+API_KEY = apikeys.API_KEY
+API_SECRET = apikeys.API_SECRET
+APCA_API_BASE_URL = apikeys.APCA_API_BASE_URL
+alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
 
-for name, val in foo.__dict__.items(): # iterate through every module's attributes
-    if callable(val):                      # check if callable (normally functions)
-        if contains_explicit_return(val):
-            print("not threadable"   )# call it
-        else:
-            print("threadable: " + val.__name__)
+stock = "TSLA"
+tradable = alpaca.get_asset(stock)
+print(tradable)

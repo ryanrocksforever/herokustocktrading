@@ -82,7 +82,7 @@ class mainstuff:
                     if not pdt:
                         back.Actions().ridedown(symbol, v, amount)
                     else:
-                        back.Actions().flatten(symbol, amount, 'sell')
+                        back.Actions().flatten(symbol, amount, 'buy')
                 else:
                     if back.Actions().closingTime() is True:
                         v = barget.get(stock=symbol)
@@ -115,9 +115,8 @@ class mainstuff:
                     v = barget.get(stock=symbol)
                     real = float(v)
                     closetime = back.Actions().closingTime()
-                    if closetime is True or real < goal:
-                        break
-                    print(back.Actions().closingTime())
+
+                    print(closetime)
                     print(real)
                     print("waiting")
                     time.sleep(1)
@@ -125,12 +124,13 @@ class mainstuff:
                 if real > goal:
                     print("selling")
                     print(real)
-                    print("<")
+                    print(">")
                     print(goal)
                     if not pdt:
                         back.Actions().rideup(symbol, v, amount)
                     else:
-                        back.Actions().flatten(symbol, amount, 'buy')
+                        print("FLattning")
+                        back.Actions().flatten(symbol, amount, 'sell')
                 else:
                     if back.Actions().closingTime() is True:
                         print("selling")

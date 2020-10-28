@@ -1,6 +1,13 @@
 import alpaca_trade_api as tradeapi
 import time
 import apikeys
+import finnhub
+
+
+finnhub_client = finnhub.Client(api_key=apikeys.FINN_API_KEY)
+
+# Stock candles
+print("hello")
 
 API_KEY = apikeys.API_KEY
 API_SECRET = apikeys.API_SECRET
@@ -25,10 +32,25 @@ def price(stock):
 
     return current
 
-
+global counter
+counter = 0
 def get(stock):
+    global counter
+    #print("getting")
+    print(counter)
     try:
-        first = price(stock)
-    except:
+        if counter >= 10:
+            print("using finnhub")
+            res = finnhub_client.quote('AAPL')
+
+            print(res['c'])
+            return res['c']
+        else:
+            first = price(stock)
+    except Exception as e:
+        print(e)
+        time.sleep(0.5)
         first = get(stock)
+        counter = counter + 1
+        print(counter)
     return first
